@@ -1,0 +1,35 @@
+﻿@model RegisterModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Register Page";
+}
+<h2 class="h2">Register</h2>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <div><span asp-validation-for="Email" class="text-danger"></span></div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Year"></label><br />
+        <input asp-for="Year" />
+        <div><span asp-validation-for="Year" class="text-danger"></span></div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <div><span asp-validation-for="Password" class="text-danger"></span></div>
+    </div>
+    <div class="form-group">
+        <label asp-for="PasswordConfirm"></label><br />
+        <input asp-for="PasswordConfirm" />
+        <div><span asp-validation-for="PasswordConfirm" class="text-danger"></span></div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+

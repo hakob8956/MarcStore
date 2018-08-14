@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Menu";
+    Layout = "_AdminLayout";
+}
+
+<table class="table">
+    <tr>
+        <th scope="col" class="text-center">Menu For Admin</th>
+    </tr>
+    <tr class="text-center">
+        <td scope="row"><a class="btn btn-success" asp-action="List" asp-controller="Order">Orders</a></td>
+    </tr>
+    <tr class="text-center">
+        <td scope="row"><a class="btn btn-success" asp-action="Index">Products</a></td>
+    </tr>
+    <tr class="text-center">
+        <td scope="row"><a class="btn btn-success" asp-action="Index" asp-controller="Users">Users</a></td>
+    </tr>
+    <tr class="text-center">
+        <td scope="row"><a class="btn btn-success" asp-action="Index" asp-controller="Roles">Roles</a></td>
+    </tr>
+</table>
+
