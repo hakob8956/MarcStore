@@ -9,3 +9,14 @@ D:\Programming\SportsStore\src\MarcStore\bin\Debug\netcoreapp2.0\MarcStore.pdb
 D:\Programming\SportsStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.dll
 D:\Programming\SportsStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.pdb
 D:\Programming\SportsStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.csprojAssemblyReference.cache
+D:\Programming\MarcStore\src\MarcStore\bin\Debug\netcoreapp2.0\MarcStore.deps.json
+D:\Programming\MarcStore\src\MarcStore\bin\Debug\netcoreapp2.0\MarcStore.runtimeconfig.json
+D:\Programming\MarcStore\src\MarcStore\bin\Debug\netcoreapp2.0\MarcStore.runtimeconfig.dev.json
+D:\Programming\MarcStore\src\MarcStore\bin\Debug\netcoreapp2.0\MarcStore.dll
+D:\Programming\MarcStore\src\MarcStore\bin\Debug\netcoreapp2.0\MarcStore.pdb
+D:\Programming\MarcStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.csprojAssemblyReference.cache
+D:\Programming\MarcStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.csproj.CoreCompileInputs.cache
+D:\Programming\MarcStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.AssemblyInfoInputs.cache
+D:\Programming\MarcStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.AssemblyInfo.cs
+D:\Programming\MarcStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.dll
+D:\Programming\MarcStore\src\MarcStore\obj\Debug\netcoreapp2.0\MarcStore.pdb

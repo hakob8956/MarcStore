@@ -5,12 +5,52 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/Microsoft.jQuery.Unobtrusive.Ajax/jquery.unobtrusive-ajax.min.js"></script>
     <title>MarcStore</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        /* Style the search field */
+        form.mySearch input[type=text] {
+            padding: 4px;
+            font-size: 15px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.mySearch button {
+            float: left;
+            width: 20%;
+            padding: 2.8px;
+            background: #575757;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
+
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+        /* Clear floats */
+        form.mySearch::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
 </head>
 <body style="overflow-x:hidden; ">
     <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="http://localhost:56295">SPORTS STORE</a>
+        <a class="navbar-brand" asp-action="List" asp-controller="Product">Marc Store</a>
 
         <div class="pull-right">
             @await Component.InvokeAsync("CartSummary")
@@ -37,12 +77,16 @@
     </div>
     <div class="row panel">
         <div id="categories" class="col-xs-3">
+            <form asp-action="ProductSearch" class="mySearch" style="margin:auto;max-width:300px" method="post">
+                <input type="text" placeholder="Search name.." name="productName">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
             @await Component.InvokeAsync("NavigationMenu")
         </div>
 
         <div class="col-xs-8">
             @RenderBody()
-           
+
         </div>
     </div>
 </body>

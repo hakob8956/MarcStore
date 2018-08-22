@@ -3,11 +3,11 @@
 <div class="well">
     @if (Model.ImageData != null)
     {
-        <div class="pull-left" style="margin-right: 10px">
-            <img class="img-thumbnail" width="75" height="75"
-                 src="@Url.Action("GetImage", "Product",
-                new { Model.ProductID })" />
-        </div>
+    <div class="pull-left" style="margin-right: 10px">
+        <img class="img-thumbnail" width="75" height="75"
+             src="@Url.Action(" GetImage", "Product" ,
+             new { Model.ProductID })" />
+    </div>
     }
     <h3>
         <a asp-route-productId="@Model.ProductID"
@@ -23,20 +23,21 @@
         <input type="hidden" asp-for="ProductID" />
         <input type="hidden" name="returnUrl"
                value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-        <span class="lead">
+        <span class="lead" style="display:inline-block;width:85%">
             @Model.Description
-            <button type="submit" class="btn btn-success btn-sm pull-right">
-                Add To Cart
-            </button>
         </span>
+        <button type="submit" class="btn btn-success btn-sm pull-right">
+            Add To Cart
+        </button>
+
     </form>
     @*@using (Html.BeginForm("AddFavorite", "Favorite", FormMethod.Post))
-        {
-            <span class="lead">
-                <input type="hidden" asp-for="ProductID" />
-                <button class="btn btn-sm btn-default navbar-btn" type="submit">
-                    <i class="fas fa-heart"></i>
-                </button>
-            </span>
-        }*@
+    {
+    <span class="lead">
+        <input type="hidden" asp-for="ProductID" />
+        <button class="btn btn-sm btn-default navbar-btn" type="submit">
+            <i class="fas fa-heart"></i>
+        </button>
+    </span>
+    }*@
 </div>

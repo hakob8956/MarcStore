@@ -3,6 +3,8 @@ using MarcStore.Models;
 using System.Linq;
 using MarcStore.Models.ViewModels;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
 
 namespace MarcStore.Controllers
 {
@@ -48,12 +50,27 @@ namespace MarcStore.Controllers
             if (product != null)
             {
                 return File(product.ImageData, product.ImageMimeType);
-                
+
             }
             else
             {
                 return null;
             }
         }
+
+        [HttpPost]
+        public IActionResult ProductSearch(string productName)
+        {            
+            var product = repository.Products.Where(p => 
+            p.Name.ToLower().Replace(" ",string.Empty)
+            .Contains(productName.ToLower()
+            .Replace(" ",string.Empty))).ToList();
+            if (product.Count <=0)
+            {
+                return View(null);
+            }
+            return View(product);
+        }
+
     }
 }
