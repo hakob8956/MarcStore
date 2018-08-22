@@ -1,0 +1,21 @@
+﻿@*@model IEnumerable<Product>
+
+<h2>Your Favorites</h2>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th scope="col" colspan="2">Product</th>
+        <th scope="col"></th>
+    </tr>
+    <tr>
+       
+        @foreach (var item in Model)
+        {
+            
+            <td scope="row">@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+        }
+    </tr>
+    <tr></tr>
+</table>*@
