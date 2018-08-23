@@ -6,9 +6,9 @@ using Microsoft.Extensions.Logging;
 using MarcStore.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.IO;
 
 namespace MarcStore
 {
@@ -28,6 +28,7 @@ namespace MarcStore
 
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration["Data:MarcStoreProducts:ConnectionString"]));
@@ -35,7 +36,10 @@ namespace MarcStore
             services.AddDbContext<AppIdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration["Data:MarcStoreIdentity:ConnectionString"]));
-
+            services.Configure<IISOptions>(options =>
+            {
+                options.ForwardClientCertificate = false;
+            });
             services.AddIdentity<User, IdentityRole>(opts =>
             {
                 opts.Password.RequiredLength = 4;   // минимальная длина
@@ -60,7 +64,8 @@ namespace MarcStore
         public void Configure(IApplicationBuilder app,
                 IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-
+            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+            var logger = loggerFactory.CreateLogger("FileLogger");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -71,7 +76,8 @@ namespace MarcStore
                 app.UseStatusCodePagesWithReExecute("/errors/{0}.html");
                 //app.UseExceptionHandler("/Error");
             }
-
+            
+   
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseSession();

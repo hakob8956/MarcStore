@@ -5,8 +5,9 @@ namespace MarcStore.Models.ViewModels
 {
     public class RegisterModel
     {
-        [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
         [Required]

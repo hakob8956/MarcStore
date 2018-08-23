@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/Microsoft.jQuery.Unobtrusive.Ajax/jquery.unobtrusive-ajax.min.js"></script>
+
     <title>MarcStore</title>
     <style>
         * {
@@ -36,9 +35,9 @@
             cursor: pointer;
         }
 
-            form.example button:hover {
-                background: #0b7dda;
-            }
+        form.example button:hover {
+            background: #0b7dda;
+        }
 
         /* Clear floats */
         form.mySearch::after {
@@ -49,35 +48,36 @@
     </style>
 </head>
 <body style="overflow-x:hidden; ">
-    <div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar navbar-inverse" role="navigation" style="height:30px">
         <a class="navbar-brand" asp-action="List" asp-controller="Product">Marc Store</a>
 
-        <div class="pull-right">
-            @await Component.InvokeAsync("CartSummary")
-        </div>
-        <div class="pull-right center-block" style="margin:10px">
+
+        <div class="pull-right" style="margin:10px">
             @if (User.Identity.IsAuthenticated)
             {
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
                 {
-                    <button type="submit" class="btn btn-sm btn-primary pull-right">Log Out</button>
+                    <button type="submit" style="height:30px;width:32px" title="Log Out"><i class="fas fa-sign-out-alt"></i></button>
                 }
-                <div style="position:relative;bottom:30px;right:80px">
+                <div>
                     @if (User.IsInRole("admin"))
                     {
-                        <a class="btn btn-sm btn-primary" asp-controller="Admin" asp-action="Menu">Menu*</a>
+                        <a asp-action="Menu" asp-controller="Admin" data-toggle="tooltip" title="Menu For Admin!"><button style="height:30px;width:32px;position: relative; right: 40px;bottom: 30px"> <i class="fas fa-toolbox"></i></button></a>
                     }
                 </div>
             }
             else
             {
-                <a class="btn btn-sm btn-primary pull-right " asp-action="Login" asp-controller="Account">Log In</a>
+                <a asp-action="Login" asp-controller="Account" title="Login"><button style="height:30px;width:32px" type="button"><i class="fas fa-sign-in-alt"></i></button></a>
             }
+        </div>
+        <div class="pull-right" id="ChangeCartStyle" style="position:relative;right:37px">
+            @await Component.InvokeAsync("CartSummary")
         </div>
     </div>
     <div class="row panel">
         <div id="categories" class="col-xs-3">
-            <form asp-action="ProductSearch" class="mySearch" style="margin:auto;max-width:300px" method="post">
+            <form asp-action="ProductSearch" asp-controller="Product" class="mySearch" style="margin:auto;max-width:300px" method="post">
                 <input type="text" placeholder="Search name.." name="productName">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -89,5 +89,19 @@
 
         </div>
     </div>
+    <!-- Start of LiveChat (www.livechatinc.com) code -->
+    <script type="text/javascript">
+        window.__lc = window.__lc || {};
+        window.__lc.license = 10055468;
+        (function () {
+            var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+            lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+        })();
+    </script>
+    <noscript>
+        <a href="https://www.livechatinc.com/chat-with/10055468/">Chat with us</a>
+    </noscript>
+    <!-- End of LiveChat code -->
 </body>
 </html>

@@ -14,11 +14,10 @@ namespace MarcStore.Controllers
             repository = repoService;
             cart = cartService;
         }
-        [Authorize(Roles ="admin")]
+
         public ViewResult List() =>
             View(repository.Orders.Where(o => !o.Shipped));
         [HttpPost]
-        [Authorize(Roles = "admin")]
         public IActionResult MarkShipped(int orderID)
         {
             Order order = repository.Orders

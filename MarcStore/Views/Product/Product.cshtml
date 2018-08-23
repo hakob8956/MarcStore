@@ -28,14 +28,17 @@
         </span>
     }
 </div>
-<div>
-    <img style=" display: inline-block;
+@if (/* Model.ImageData != null */ false)
+{
+    <div>
+        <img style=" display: inline-block;
                      height: auto;
                      max-width: 100%;"
-         src="@Url.Action("GetImage", "Product",
+             src="@Url.Action("GetImage", "Product",
                new { Model.ProductID })" class="img-fluid" alt="Responsive image">
 
-</div>
+    </div>
+}
 <div class="text-justife" style="margin-bottom:70px;display:inline-block;width:85%">
     @Model.Text;
 </div>
