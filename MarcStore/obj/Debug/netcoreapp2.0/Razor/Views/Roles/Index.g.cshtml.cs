@@ -84,7 +84,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(232, 226, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57779112aea54a73896316753b0221af", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e221b8c4bcd148ef8aa9651c5eb0393e", async() => {
                 BeginContext(296, 155, true);
                 WriteLiteral("\r\n                    <button type=\"submit\" class=\"btn btn-sm btn-danger\">\r\n                        Delete\r\n                    </button>\r\n                ");
                 EndContext();
@@ -131,7 +131,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("</table>\r\n");
             EndContext();
             BeginContext(511, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713902fa407b43efaa001e16b924f58f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1996acfae49648d3b362ba046d148b5e", async() => {
                 BeginContext(575, 8, true);
                 WriteLiteral("Add Role");
                 EndContext();
@@ -154,7 +154,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(589, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7cef8666bdaa424590cb55b1781d80fa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88c0e6bd7862440f9067e7a4921ec93a", async() => {
                 BeginContext(655, 10, true);
                 WriteLiteral("Users List");
                 EndContext();

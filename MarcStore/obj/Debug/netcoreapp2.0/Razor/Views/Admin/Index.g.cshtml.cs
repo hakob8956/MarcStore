@@ -118,7 +118,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(712, 170, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb6942e8d51b4e44bac6afca396d51a3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "32b1b0a9bf804cbfa128f605f3badb8f", async() => {
                 BeginContext(826, 52, true);
                 WriteLiteral("\r\n                        Edit\r\n                    ");
                 EndContext();
@@ -180,7 +180,7 @@ WriteAttributeValue("", 949, item.ProductID, 949, 15, false);
             WriteLiteral("</table>\r\n<div class=\"text-center\">\r\n    ");
             EndContext();
             BeginContext(1208, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0531b390302543f28634f04395a10384", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74b69fe95a1a4de391611fc0b75962be", async() => {
                 BeginContext(1255, 11, true);
                 WriteLiteral("Add Product");
                 EndContext();

@@ -63,7 +63,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(30, 130, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc4dbe819b6640d1ac019faa15fd2282", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a23176187e5c42478f5e8fd49dcec419", async() => {
                 BeginContext(144, 12, true);
                 WriteLiteral("\r\n    Home\r\n");
                 EndContext();
@@ -102,7 +102,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("    ");
             EndContext();
             BeginContext(207, 191, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7fc890d270074381a93cbadf7a9b3998", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cfab57e8350140828a810fe4a45a6e5b", async() => {
                 BeginContext(369, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();

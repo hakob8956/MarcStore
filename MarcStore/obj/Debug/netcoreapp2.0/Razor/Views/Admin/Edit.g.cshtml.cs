@@ -289,7 +289,7 @@ WriteAttributeValue("", 2823, Url.Action("GetImage", "Product",
             WriteLiteral("\r\n            </div>\r\n        </div>\r\n        <div class=\"panel-footer\">\r\n            <input type=\"submit\" value=\"Save\" class=\"btn btn-primary\" />\r\n            ");
             EndContext();
             BeginContext(3485, 78, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c8fae8277b34989900db4af5c02d216", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9847fe06e500426b8489d8dbf3d24f00", async() => {
                 BeginContext(3553, 6, true);
                 WriteLiteral("Cancel");
                 EndContext();

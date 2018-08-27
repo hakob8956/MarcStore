@@ -10,7 +10,7 @@
         </div>
     }
     <h3>
-        <a asp-route-productId="@Model.ProductID"
+        <a asp-route-productId="@Model.ProductID" asp-route-category="@Model.Category"
            asp-action="Product" style="color:#332D35">
             <strong>@Model.Name</strong>
         </a>

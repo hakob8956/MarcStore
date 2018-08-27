@@ -99,7 +99,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("    ");
             EndContext();
             BeginContext(435, 219, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9eef00c83f3457f99be5aa809a519a5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb9cd15f83754fe8ae96d8152ba452f3", async() => {
                 BeginContext(599, 51, true);
                 WriteLiteral("\r\n        <i class=\"fa fa-shopping-cart\"></i>\r\n    ");
                 EndContext();

@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using MarcStore.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MarcStore.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using System;
 using System.IO;
 
@@ -76,19 +76,30 @@ namespace MarcStore
                 app.UseStatusCodePagesWithReExecute("/errors/{0}.html");
                 //app.UseExceptionHandler("/Error");
             }
-            
-   
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseSession();
 #pragma warning disable CS0618 // Type or member is obsolete
             app.UseIdentity();
 #pragma warning restore CS0618 // Type or member is obsolete
-            app.UseMvcWithDefaultRoute();
+
             app.UseMvc(routes =>
             {
+
                 routes.MapRoute(name: "Error", template: "Error",
                     defaults: new { controller = "Error", action = "Error" });
+
+                routes.MapRoute(
+                 name: null,
+                 template: "Admin/{action}",
+                 defaults: new { controller = "Admin", action = "Menu" }
+                 );
+                routes.MapRoute(
+                    name: null,
+                    template: "Product/{category}/{productId:int}",
+                    defaults: new { controller = "Product", action = "Product" }
+
+                    );
 
                 routes.MapRoute(
                     name: null,
@@ -112,9 +123,10 @@ namespace MarcStore
                     name: null,
                     template: "",
                     defaults: new { controller = "Product", action = "List", page = 1 });
+
                 routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
             });
-           SeedData.EnsurePopulated(app);
+            SeedData.EnsurePopulated(app);
         }
 
     }

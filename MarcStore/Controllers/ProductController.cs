@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MarcStore.Models;
-using System.Linq;
+﻿using MarcStore.Models;
 using MarcStore.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 
@@ -18,12 +18,18 @@ namespace MarcStore.Controllers
         {
             repository = repo;
         }
-        public IActionResult Product(int productId)
+        public IActionResult Product(int productId,string category)
         {
             Product result = repository.Products.FirstOrDefault(i => i.ProductID == productId);
 
-            return View(result);
+            if (result!=null && category.Equals(result.Category))
+            {
+                return View(result);
+            }
+            return NotFound();
+            
         }
+
 
         public ViewResult List(string category, int page = 1)
             => View(new ProductsListViewModel
@@ -60,16 +66,21 @@ namespace MarcStore.Controllers
 
         [HttpPost]
         public IActionResult ProductSearch(string productName)
-        {            
-            var product = repository.Products.Where(p => 
-            p.Name.ToLower().Replace(" ",string.Empty)
+        {
+            if (string.IsNullOrEmpty(productName))
+                return View(null);
+
+            var product = repository.Products.Where(p =>
+            p.Name.ToLower().Replace(" ", string.Empty)
             .Contains(productName.ToLower()
-            .Replace(" ",string.Empty))).ToList();
-            if (product.Count <=0)
+            .Replace(" ", string.Empty))).ToList();
+            if (product?.Count <= 0)
             {
                 return View(null);
             }
             return View(product);
+
+
         }
 
     }

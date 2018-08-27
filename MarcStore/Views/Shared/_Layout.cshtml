@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
-
+    @RenderSection("head",false)
     <title>MarcStore</title>
     <style>
         * {
             box-sizing: border-box;
         }
-
+  
         /* Style the search field */
         form.mySearch input[type=text] {
             padding: 4px;
@@ -46,6 +46,7 @@
             display: table;
         }
     </style>
+    @RenderSection("Styles", false)
 </head>
 <body style="overflow-x:hidden; ">
     <div class="navbar navbar-inverse" role="navigation" style="height:30px">
@@ -57,21 +58,31 @@
             {
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
                 {
-                    <button type="submit" style="height:30px;width:32px" title="Log Out"><i class="fas fa-sign-out-alt"></i></button>
+                    <button type="submit" style="height:30px;width:32px" title="Log Out">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
                 }
                 <div>
                     @if (User.IsInRole("admin"))
                     {
-                        <a asp-action="Menu" asp-controller="Admin" data-toggle="tooltip" title="Menu For Admin!"><button style="height:30px;width:32px;position: relative; right: 40px;bottom: 30px"> <i class="fas fa-toolbox"></i></button></a>
+                        <a asp-action="Menu" asp-controller="Admin" title="Menu For Admin!">
+                            <button style="height:30px;width:32px;position: relative; right: 40px;bottom: 30px">
+                                <i class="fas fa-toolbox"></i>
+                            </button>
+                        </a>
                     }
                 </div>
             }
             else
             {
-                <a asp-action="Login" asp-controller="Account" title="Login"><button style="height:30px;width:32px" type="button"><i class="fas fa-sign-in-alt"></i></button></a>
+                <a asp-action="Login" asp-controller="Account" title="Login">
+                    <button style="height:30px;width:32px" type="button">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </a>
             }
         </div>
-        <div class="pull-right" id="ChangeCartStyle" style="position:relative;right:37px">
+        <div class="pull-right" id="CartStyle" @*style="position:relative;right:37px" *@>
             @await Component.InvokeAsync("CartSummary")
         </div>
     </div>
@@ -89,19 +100,28 @@
 
         </div>
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <script type="text/javascript">
+            var element = document.getElementById("CartStyle");
+            element.style.position = "relative";
+            element.style.right = "37px";
+
+        </script>
+    }
     <!-- Start of LiveChat (www.livechatinc.com) code -->
-    <script type="text/javascript">
-        window.__lc = window.__lc || {};
-        window.__lc.license = 10055468;
-        (function () {
-            var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-            lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-        })();
-    </script>
-    <noscript>
-        <a href="https://www.livechatinc.com/chat-with/10055468/">Chat with us</a>
-    </noscript>
+    @*<script type="text/javascript">
+            window.__lc = window.__lc || {};
+            window.__lc.license = 10055468;
+            (function () {
+                var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+                lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+            })();
+        </script>
+        <noscript>
+            <a href="https://www.livechatinc.com/chat-with/10055468/">Chat with us</a>
+        </noscript>*@
     <!-- End of LiveChat code -->
 </body>
 </html>

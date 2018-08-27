@@ -79,7 +79,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(224, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "680fc20609ef462388e70e1ed5af73bc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34c13fb542824d8a8f9048281066aae6", async() => {
                 BeginContext(304, 13, true);
                 WriteLiteral("Access rights");
                 EndContext();
