@@ -1,0 +1,25 @@
+﻿
+<!-- Modal -->
+<div class="modal fade" id="myLogin" role="dialog" style="left:50px">
+    <div class="modal-dialog" style="width:300px">
+
+        <!-- Modal content-->
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <iframe scrolling="auto" src=@Url.Action("Login", "Account",new{ItIframe=true}) style="height:350px;width:280px;border:0px">
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Login</a>
+                </iframe>
+                <footer>
+                    <a class="alert-link" asp-controller="Account" asp-action="Login">Go Page!</a>
+                </footer>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

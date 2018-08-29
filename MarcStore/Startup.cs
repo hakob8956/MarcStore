@@ -64,8 +64,8 @@ namespace MarcStore
         public void Configure(IApplicationBuilder app,
                 IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
-            var logger = loggerFactory.CreateLogger("FileLogger");
+            //loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+            //var logger = loggerFactory.CreateLogger("FileLogger");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -94,6 +94,7 @@ namespace MarcStore
                  template: "Admin/{action}",
                  defaults: new { controller = "Admin", action = "Menu" }
                  );
+             
                 routes.MapRoute(
                     name: null,
                     template: "Product/{category}/{productId:int}",

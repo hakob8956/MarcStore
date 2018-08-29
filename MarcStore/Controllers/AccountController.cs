@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using MarcStore.Models;
+using MarcStore.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using MarcStore.Models;
-using MarcStore.Models.ViewModels;
+using System.Threading.Tasks;
+
 
 namespace MarcStore.Controllers
 {
@@ -18,14 +19,27 @@ namespace MarcStore.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
         [HttpGet]
-        public IActionResult Register()
+
+        public IActionResult Register(bool ItIframe = false)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return NotFound();
+            }
+            ViewBag.ItIframe = (bool)ItIframe;
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterModel model)
+
+        public async Task<IActionResult> Register(RegisterModel model, bool ItIframe = false)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return NotFound();
+            }
+            ViewBag.ItIframe = (bool)ItIframe;
             if (ModelState.IsValid)
             {
                 User user = new User { Email = model.Email, UserName = model.Email, Year = model.Year };
@@ -35,6 +49,8 @@ namespace MarcStore.Controllers
                 {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
+                    if (ItIframe)
+                        return RedirectToAction("Successfully");
                     return RedirectToAction("List", "Product");
                 }
                 else
@@ -48,14 +64,15 @@ namespace MarcStore.Controllers
             return View(model);
         }
         [HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string returnUrl = null, bool ItIframe = false)
         {
+            ViewBag.ItIframe = (bool)ItIframe;
             return View(new LoginModel { ReturnUrl = returnUrl });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel model)
+        public async Task<IActionResult> Login(LoginModel model, bool ItIframe = false)
         {
             if (ModelState.IsValid)
             {
@@ -66,11 +83,16 @@ namespace MarcStore.Controllers
                     // проверяем, принадлежит ли URL приложению
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
+                        if (ItIframe)
+                            return RedirectToAction("Successfully", "Account");
                         return Redirect(model.ReturnUrl);
                     }
                     else
                     {
+                        if (ItIframe)
+                            return RedirectToAction("Successfully", "Account");
                         return RedirectToAction("List", "Product");
+
                     }
 
                 }
@@ -79,9 +101,11 @@ namespace MarcStore.Controllers
                     ModelState.AddModelError("", "Incorrect login and / or password");
                 }
             }
+            ViewBag.ItIframe = (bool)ItIframe;
             return View(model);
         }
-
+        [HttpGet]
+        public ViewResult Successfully() => View();
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LogOff()

@@ -29,7 +29,7 @@ using MarcStore.Infrastructure;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"255460626e89c9ce24eb1b3f9775acd8a6e41fbe", @"/Views/Admin/Menu.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"08b4b4bac9e06ec9f825f8086c249be8058f9b3e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d5b3523c0202ee9bf573c983a5291f3dff3135e", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Menu : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -73,7 +73,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("\r\n<table class=\"table\">\r\n    <tr>\r\n        <th scope=\"col\" class=\"text-center\">Menu For Admin</th>\r\n    </tr>\r\n    <tr class=\"text-center\">\r\n        <td scope=\"row\">");
             EndContext();
             BeginContext(231, 78, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dba8468611db4198a802f9d053e94a20", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bc263a1599484d109eb50d11fc7ce282", async() => {
                 BeginContext(299, 6, true);
                 WriteLiteral("Orders");
                 EndContext();
@@ -98,7 +98,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("</td>\r\n    </tr>\r\n    <tr class=\"text-center\">\r\n        <td scope=\"row\">");
             EndContext();
             BeginContext(381, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "156db1e0fee2489b818b16726cb106b4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "149f823e8ac64873ae39171e12d9c6a2", async() => {
                 BeginContext(427, 8, true);
                 WriteLiteral("Products");
                 EndContext();
@@ -121,7 +121,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("</td>\r\n    </tr>\r\n    <tr class=\"text-center\">\r\n        <td scope=\"row\">");
             EndContext();
             BeginContext(511, 78, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef514d1b22af4e878f5c1db866c0a9da", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48991a64008544eebca14b1963b05a0f", async() => {
                 BeginContext(580, 5, true);
                 WriteLiteral("Users");
                 EndContext();
@@ -146,7 +146,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("</td>\r\n    </tr>\r\n    <tr class=\"text-center\">\r\n        <td scope=\"row\">");
             EndContext();
             BeginContext(661, 78, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7ac0c79420a4b67b93506c65ef39405", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b791f683e7ef4786b19bb3a130b3af30", async() => {
                 BeginContext(730, 5, true);
                 WriteLiteral("Roles");
                 EndContext();
@@ -171,7 +171,7 @@ using MarcStore.Infrastructure;
             WriteLiteral("</td>\r\n    </tr>\r\n    <tr class=\"text-center\">\r\n        <td scope=\"row\">");
             EndContext();
             BeginContext(811, 78, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bcd89575c1b34ec8b548ce07c4f1a797", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ba3c23a04104e2a9b3695c6c1ecce84", async() => {
                 BeginContext(881, 4, true);
                 WriteLiteral("Home");
                 EndContext();

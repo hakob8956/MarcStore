@@ -3,15 +3,37 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <!--#region favicon  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="57x57" asp-href-include="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" asp-href-include="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" asp-href-include="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" asp-href-include="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" asp-href-include="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" asp-href-include="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" asp-href-include="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" asp-href-include="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" asp-href-include="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" asp-href-include="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" asp-href-include="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" asp-href-include="favicon/favicon-16x16.png">
+    <link rel="manifest" asp-href-include="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--#endregion -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    @*<link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />*@
     <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
-    @RenderSection("head",false)
+    @RenderSection("head", false)
     <title>MarcStore</title>
     <style>
         * {
             box-sizing: border-box;
         }
-  
+
         /* Style the search field */
         form.mySearch input[type=text] {
             padding: 4px;
@@ -45,7 +67,7 @@
             clear: both;
             display: table;
         }
-    </style>
+    </style><!-- My Search-->
     @RenderSection("Styles", false)
 </head>
 <body style="overflow-x:hidden; ">
@@ -58,9 +80,34 @@
             {
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
                 {
-                    <button type="submit" style="height:30px;width:32px" title="Log Out">
+                    <!-- Button trigger modal -->
+                    <button type="button" data-toggle="modal" data-target="#exampleModalCenter" style="height:30px;width:32px" title="Log Out">
                         <i class="fas fa-sign-out-alt"></i>
                     </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">ConfiSrm</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="alert alert-danger">Are you sure you want to log out</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    <button type="submit" class="btn btn-primary">Yes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<button type="submit" style="height:30px;width:32px" title="Log Out">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>*@
                 }
                 <div>
                     @if (User.IsInRole("admin"))
@@ -75,15 +122,18 @@
             }
             else
             {
-                <a asp-action="Login" asp-controller="Account" title="Login">
-                    <button style="height:30px;width:32px" type="button">
-                        <i class="fas fa-sign-in-alt"></i>
-                    </button>
-                </a>
+                <button type="button" style="height:30px;width:32px" data-toggle="modal" data-target="#myLogin">
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>
+                @*<button style="height:30px;width:32px" type="button" data-toggle="modal" data-target="#myLogin">
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>*@
+
             }
         </div>
         <div class="pull-right" id="CartStyle" @*style="position:relative;right:37px" *@>
             @await Component.InvokeAsync("CartSummary")
+
         </div>
     </div>
     <div class="row panel">
@@ -100,7 +150,7 @@
 
         </div>
     </div>
-    @if (User.Identity.IsAuthenticated)
+    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
     {
         <script type="text/javascript">
             var element = document.getElementById("CartStyle");
@@ -109,19 +159,8 @@
 
         </script>
     }
-    <!-- Start of LiveChat (www.livechatinc.com) code -->
-    @*<script type="text/javascript">
-            window.__lc = window.__lc || {};
-            window.__lc.license = 10055468;
-            (function () {
-                var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-                lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-            })();
-        </script>
-        <noscript>
-            <a href="https://www.livechatinc.com/chat-with/10055468/">Chat with us</a>
-        </noscript>*@
-    <!-- End of LiveChat code -->
+   @* @await Component.InvokeAsync("Login")*@
+    @Html.Partial("LoginPartial")
+
 </body>
 </html>

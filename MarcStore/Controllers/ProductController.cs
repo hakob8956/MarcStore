@@ -29,8 +29,6 @@ namespace MarcStore.Controllers
             return NotFound();
             
         }
-
-
         public ViewResult List(string category, int page = 1)
             => View(new ProductsListViewModel
             {
